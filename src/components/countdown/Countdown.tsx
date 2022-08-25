@@ -8,13 +8,12 @@ type CountDownTypeProps = {
 };
 
 const CountdownTimer = ({ seconds, dispatch }: CountDownTypeProps) => {
-  const [remainingSeconds, setRemainingSeconds] = useState(seconds);
+  const [remainingSeconds, setRemainingSeconds] = useState(seconds - 1);
   const [counterValues, setCounterValues] = useState(getTimerValues(seconds));
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setTimeout(() => {
       if (remainingSeconds < 0) {
-        clearInterval(interval);
         dispatch({
           type: ACTIONS.SET_COUNTDOWN_SHOW,
           payload: {
@@ -38,7 +37,7 @@ const CountdownTimer = ({ seconds, dispatch }: CountDownTypeProps) => {
       });
     }, 1000);
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(timer);
   }, [dispatch, remainingSeconds]);
 
   return (
