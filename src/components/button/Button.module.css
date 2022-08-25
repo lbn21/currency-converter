@@ -1,0 +1,23 @@
+.btn {
+  border: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 0.75rem;
+  border-radius: 100px; /* big enough number to get round corners */
+  color: white;
+  background-color: hsl(var(--primary));
+  outline: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px hsla(var(--primary), 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

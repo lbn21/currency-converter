@@ -1,0 +1,92 @@
+.countryButton {
+  border: 0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 0.75rem;
+  color: hsla(var(--muted));
+  outline: none;
+  background: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.countryButton:hover {
+  cursor: pointer;
+  background-color: hsla(var(--border));
+}
+
+.countryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.countryButton.toggle {
+  color: hsl(var(--primary));
+}
+
+.countryButton.selected {
+  color: white;
+  background-color: hsl(var(--primary));
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.flag {
+  margin-right: 0.25rem;
+}
+
+.code {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.name {
+  font-size: 0.75rem;
+}
+
+.chevron {
+  fill: hsl(var(--primary));
+}
+
+.list {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  padding: 1rem;
+  z-index: 1;
+}
+
+.list.show {
+  display: flex;
+}
+
+.countriesContainer {
+  overflow-y: auto;
+  width: 100%;
+}
+
+.search {
+  color: hsl(var(--primary));
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid hsl(var(--border));
+  outline: none;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.noResults {
+  padding: 0.75rem;
+  margin: 0;
+  color: black;
+  font-weight: bold;
+}

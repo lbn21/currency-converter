@@ -1,0 +1,13 @@
+.expireBox {
+  display: flex;
+  background-color: hsl(var(--primary));
+  color: white;
+  padding: 1rem;
+}
+
+.countdown {
+  min-width: 5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
