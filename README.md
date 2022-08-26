@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Running application locally
+
+Clone repository
+
+### `git clone https://github.com/lbn21/currency-converter.git`
+
+Naviogate to the direcotry and install dependencies
+
+### `npm install`
+
+Use one of the command listed below to run the application
+
 ## Available Scripts
 
 In the project directory, you can run:
