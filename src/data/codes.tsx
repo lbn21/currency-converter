@@ -1,3 +1,4 @@
+// this list is for checking if we can use flagcdn API to show image
 export const CODES = {
   ad: "Andorra",
   ae: "United Arab Emirates",

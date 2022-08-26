@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+
 import { ACTIONS, Country, Currency } from "../converter/Reducer";
+
 import styles from "./Dropdown.module.css";
 
+// component props type
 type DropdownTypeProps = {
   countries: Country[];
   selected: Currency;
@@ -15,39 +18,50 @@ const Dropdown = ({
   dispatch,
   disabled,
 }: DropdownTypeProps) => {
-  const country = countries.find((c) => c.code === selected.code);
+  const country = countries.find((c) => c.code === selected.code); // currently selected country
 
-  const [search, setSearch] = useState("");
-  const [show, setShow] = useState(false);
+  const [search, setSearch] = useState(""); // lookup input state
+  const [show, setShow] = useState(false); // this will open country list
+
+  // we use simple state for filtering
   const [countriesNew, setCountriesNew] = useState({
     countries: [...countries],
   });
 
+  // search input update
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
+  // user clicked a country from the dropdown
   const handleClick = (country: Country) => {
+    // we set the code using action provided to component
     dispatch({
       type: selected.type,
       payload: { code: country.code },
     });
+
+    // we remove timer if it showing now
     dispatch({
       type: ACTIONS.SET_COUNTDOWN_SHOW,
       payload: {
         show: false,
       },
     });
-    setShow((prev) => !prev);
-    setSearch("");
+
+    setShow((prev) => !prev); // we hid ethe list
+    setSearch(""); // we reset the input
   };
 
+  // hood to filter countries based on search input
   useEffect(() => {
     const newList = countries.filter((c) => {
       return (
         c.code.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1
       );
     });
+
+    // we use filtered list
     setCountriesNew({
       countries: [...newList],
     });

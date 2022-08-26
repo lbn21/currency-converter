@@ -42,19 +42,21 @@ export type ConverterState = {
   countdown: Countdown;
 };
 
+// our reducer function responsible for state management
 const reducer = (state: ConverterState, action: Action): ConverterState => {
   switch (action.type) {
-    case ACTIONS.SET_COUNTRIES:
+    case ACTIONS.SET_COUNTRIES: // countries from API are set to state
       const countries: Country[] = [];
       const codes = CODES;
       for (const code in action.payload.countries) {
         if (
           Object.prototype.hasOwnProperty.call(action.payload.countries, code)
         ) {
-          //check if country flag is available
+          // check if country flag is available
           const countryCode = code.slice(0, 2).toLocaleLowerCase();
           let flag = "https://via.placeholder.com/30x20/e0e0e0/000000";
           if (Object.prototype.hasOwnProperty.call(codes, countryCode)) {
+            // not all codes are available on flagcdn API
             //we have flag avaialable
             flag = `https://flagcdn.com/w20/${countryCode}.png`;
           }
@@ -66,7 +68,6 @@ const reducer = (state: ConverterState, action: Action): ConverterState => {
           countries.push(country);
         }
       }
-
       return { ...state, countries: countries };
     case ACTIONS.SET_BASE_CURRENCY_CODE:
       return {
@@ -89,7 +90,7 @@ const reducer = (state: ConverterState, action: Action): ConverterState => {
         ...state,
         baseCurrency: {
           ...state.baseCurrency,
-          amount: action.payload.amount.toFixed(2),
+          amount: action.payload.amount.toFixed(2), // formatting number to 2 decimal places
         },
       };
     case ACTIONS.SET_TARGET_CURRENCY_AMOUNT:
@@ -97,7 +98,7 @@ const reducer = (state: ConverterState, action: Action): ConverterState => {
         ...state,
         targetCurrency: {
           ...state.targetCurrency,
-          amount: action.payload.amount.toFixed(2),
+          amount: action.payload.amount.toFixed(2), // formatting number to 2 decimal places
         },
       };
     case ACTIONS.SWAP_CURRENCIES:
@@ -124,7 +125,7 @@ const reducer = (state: ConverterState, action: Action): ConverterState => {
         countdown: { show: false, expired: false },
       };
     default:
-      return state;
+      return state; // if no action found simply just return the current state
   }
 };
 

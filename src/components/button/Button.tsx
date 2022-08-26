@@ -1,5 +1,6 @@
 import styles from "./Button.module.css";
 
+// component props type
 type ButtonTypeProps = {
   handleClick: any;
   caption: string;
