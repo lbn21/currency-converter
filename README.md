@@ -2,6 +2,22 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Note from author
+
+I would like to thank you for the opportunity to take this challenge.
+Due to time contraints I wasn't able to write all the tests I planned on doing. 
+
+I haven't focused heavily on the CSS part - my thinking behind it was that in real life there would be already available CSS guideline and/or framework.
+
+I have not used any npm packages to speed up the task (eg. bootsrap). I have intentionally build all from scratch. The only dependency used was axios.
+
+Thank You!<br>
+Jakub
+
+## Live preview version
+
+Open [http://coop.lbn21.com/](http://coop.lbn21.com/) to view it in the browser.
+
 ## Running application locally
 
 Clone repository
