@@ -251,11 +251,15 @@ const Converter = () => {
               </svg>
             </button>
           </div>
-          <div
-            className={`${styles.msg} ${!amountInput.valid ? styles.show : ""}`}
-          >
-            {amountInput.value} is not a valid number
-          </div>
+          {!amountInput.valid && (
+            <div
+              className={`${styles.msg} ${
+                !amountInput.valid ? styles.show : ""
+              }`}
+            >
+              {amountInput.value} is not a valid number
+            </div>
+          )}
         </div>
         <div className={styles.dropdowns}>
           <Dropdown
